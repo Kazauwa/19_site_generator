@@ -11,7 +11,7 @@ def load_config():
     return config
 
 
-def get_article_savepath(source):
+def get_article_savepath_and_slug(source):
     path, name = os.path.split(source)
     path = os.path.join(settings.TEMPLATES_HOME, path)
     name = name.replace('.md', '.html')
@@ -53,14 +53,14 @@ if __name__ == '__main__':
     topics_list = config['topics']
 
     for article in articles_list:
-        output, article['slug'] = get_article_savepath(article['source'])
+        output, article['slug'] = get_article_savepath_and_slug(article['source'])
         source = os.path.join('articles', article['source'])
         markdownFromFile(input=source, output=output)
         wrap_in_base_template(output)
-        template = render_jinja_html(output)
-        save_rendered_template(output, template)
+        article_template = render_jinja_html(output)
+        save_rendered_template(template_path=output, template=article_template)
 
     index_template = render_jinja_html(settings.INDEX_TEMPLATE,
                                        articles=articles_list,
                                        topics=topics_list)
-    save_rendered_template(settings.INDEX_PAGE, index_template)
+    save_rendered_template(template_path=settings.INDEX_PAGE, template=index_template)

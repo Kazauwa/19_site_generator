@@ -14,18 +14,15 @@ def load_config():
 def get_article_savepath_and_slug(template_source):
     template_path, template_name = os.path.split(template_source)
     template_name = template_name.replace('.md', '.html')
-    template_path = os.template_path.join(settings.TEMPLATES_HOME, template_path)
-    template_path = os.template_path.join(settings.TEMPLATES_HOME, template_name)
+    template_path = os.path.join(settings.TEMPLATES_HOME, template_name)
     return template_path, template_name
 
 
 def wrap_in_base_template(article_html):
-    head_wrap = '{% extends "base.html" %}\n{% block content %}\n'
-    foot_wrap = '\n{% endblock %}'
     with open(article_html, 'r') as original_template:
         content = original_template.read()
     with open(article_html, 'w') as modified_template:
-        modified_template.write(head_wrap + content + foot_wrap)
+        modified_template.write(settings.HEAD_WRAP + content + settings.FOOT_WRAP)
 
 
 def render_jinja_html(template_path, **context):

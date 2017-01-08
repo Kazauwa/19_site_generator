@@ -12,11 +12,11 @@ def load_config():
 
 
 def get_article_savepath_and_slug(template_source):
-    path, name = os.path.split(template_source)
-    name = name.replace('.md', '.html')
-    path = os.path.join(settings.TEMPLATES_HOME, path)
-    path = os.path.join(settings.TEMPLATES_HOME, name)
-    return path, name
+    template_path, template_name = os.path.split(template_source)
+    template_name = template_name.replace('.md', '.html')
+    template_path = os.template_path.join(settings.TEMPLATES_HOME, template_path)
+    template_path = os.template_path.join(settings.TEMPLATES_HOME, template_name)
+    return template_path, template_name
 
 
 def wrap_in_base_template(article_html):

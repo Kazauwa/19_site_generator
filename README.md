@@ -12,7 +12,10 @@ and launch script with
 ```
 python generate_site.py
 ```
-You are good to go! Go and check **/templates/index.html** in your browser. Or check [hosted version](https://kazauwa.github.io/index/)
+You are good to go! Go and check **/templates/index.html** in your browser. 
+
+## Hosted version
+You can have a sneak peek of result at [github pages](https://kazauwa.github.io/index/)
 
 ## Project Goals
 

@@ -15,7 +15,7 @@ python generate_site.py
 You are good to go! Go and check **/templates/index.html** in your browser. 
 
 ## Hosted version
-You can have a sneak peek of result at [github pages](https://kazauwa.github.io/index/)
+You can have a sneak peek of result at [github pages](https://kazauwa.github.io/static_documentation/index/)
 
 ## Project Goals
 
